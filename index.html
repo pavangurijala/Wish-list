@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,300&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#efeeec",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#e9c176",
+              "on-secondary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-background": "#1a1c1b",
+              "on-tertiary-fixed": "#001a41",
+              "on-primary-fixed-variant": "#5d4201",
+              "primary-fixed": "#ffdea5",
+              "secondary-fixed-dim": "#c8c6c5",
+              "surface-tint": "#775a19",
+              "surface": "#faf9f7",
+              "on-secondary-fixed": "#1b1c1c",
+              "surface-container-low": "#f4f3f1",
+              "on-tertiary-container": "#233a65",
+              "surface-container-highest": "#e3e2e0",
+              "surface-bright": "#faf9f7",
+              "error": "#ba1a1a",
+              "on-surface": "#1a1c1b",
+              "on-primary-fixed": "#261900",
+              "inverse-surface": "#2f3130",
+              "outline": "#7f7667",
+              "secondary-container": "#e4e2e1",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-dim": "#dadad8",
+              "on-surface-variant": "#4e4639",
+              "primary-container": "#c5a059",
+              "inverse-primary": "#e9c176",
+              "surface-container-high": "#e9e8e6",
+              "secondary-fixed": "#e4e2e1",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#474747",
+              "on-error": "#ffffff",
+              "inverse-on-surface": "#f1f1ef",
+              "background": "#faf9f7",
+              "tertiary": "#485e8b",
+              "outline-variant": "#d1c5b4",
+              "tertiary-fixed-dim": "#b0c6f9",
+              "secondary": "#5f5e5e",
+              "surface-variant": "#e3e2e0",
+              "tertiary-container": "#8fa5d6",
+              "primary": "#775a19",
+              "on-secondary-container": "#656464",
+              "on-primary-container": "#4e3700",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#304671"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#FAF9F7]/80 dark:bg-[#1A1C1B]/80 backdrop-blur-md shadow-[0_20px_40px_rgba(26,28,27,0.04)]">
+<div class="flex justify-between items-center px-8 h-20 w-full max-w-[1920px] mx-auto">
+<div class="font-['Noto_Serif'] text-2xl tracking-tighter text-[#1A1C1B] dark:text-[#FAF9F7]">
+                The Digital Atelier
+            </div>
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-10 w-10 overflow-hidden rounded-full border border-outline-variant/30">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="Close up portrait of a professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYsDcYRHF7XWTZfizj24bNVnSzSPhAmecd7h8Y9y0fGbcBiiYYihsUJcdVYUO4tpwHSdZe3yFtYze1DdTk_6F8jikT4rJdnB0ZKhN_RlvuZyBDaLteLhkotBiBvzfyLgfZj9-ACWemQNfbJQQXTG8SRiEdaIEcYAJFZonlI4zPbRCPSRrchDJmuuctaR8Yt2MzsohmgiIpO9Y3W8U_NMjVaInToSPYHQWY8fBDythvDOQlKJjoZPXK2NA0O_DAEG1IXO2aL3DEozcC"/>
+</div>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 pt-24 bg-[#FAF9F7] dark:bg-[#1A1C1B] hidden md:flex flex-col py-12 px-6 space-y-2">
+<div class="mb-10 px-4">
+<h2 class="font-['Manrope'] text-sm uppercase tracking-widest text-[#775A19] dark:text-[#C5A059]">The Atelier</h2>
+<p class="text-xs text-on-surface-variant opacity-70">Premium Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-[#1A1C1B]/70 dark:text-[#FAF9F7]/70 font-['Manrope'] text-sm uppercase tracking-widest hover:bg-[#EFEEEC] dark:hover:bg-[#2A2C2B] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-[#1A1C1B]/70 dark:text-[#FAF9F7]/70 font-['Manrope'] text-sm uppercase tracking-widest hover:bg-[#EFEEEC] dark:hover:bg-[#2A2C2B] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<span>Collections</span>
+</a>
+<!-- Active State: Manage Products -->
+<a class="flex items-center space-x-3 px-4 py-3 rounded bg-[#EFEEEC] dark:bg-[#2A2C2B] text-[#775A19] dark:text-[#C5A059] font-semibold font-['Manrope'] text-sm uppercase tracking-widest transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Manage Products</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded text-[#1A1C1B]/70 dark:text-[#FAF9F7]/70 font-['Manrope'] text-sm uppercase tracking-widest hover:bg-[#EFEEEC] dark:hover:bg-[#2A2C2B] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/10 space-y-1">
+<a class="flex items-center space-x-3 px-4 py-2 text-[#1A1C1B]/70 dark:text-[#FAF9F7]/70 text-xs uppercase tracking-widest hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span>
+<span>Help</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 text-[#1A1C1B]/70 dark:text-[#FAF9F7]/70 text-xs uppercase tracking-widest hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-72 pt-24 min-h-screen">
+<div class="max-w-6xl mx-auto px-8 py-12">
+<!-- Header -->
+<header class="mb-12">
+<h1 class="text-4xl font-headline font-light tracking-tight text-on-surface mb-2">Manage Products</h1>
+<p class="text-on-surface-variant font-body text-lg font-light italic">Curate and organize your digital catalog</p>
+</header>
+<!-- Top Action Bar -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none focus:ring-1 focus:ring-primary rounded-none font-body text-sm placeholder:italic" placeholder="Search product name, brand or SKU..." type="text"/>
+</div>
+<button class="w-full md:w-auto px-8 py-3.5 bg-primary text-on-primary font-label text-sm uppercase tracking-widest flex items-center justify-center space-x-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>Add New Product</span>
+</button>
+</div>
+<!-- Product List Table -->
+<div class="bg-surface-container-lowest overflow-hidden border border-outline-variant/10">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/10">
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Product</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Category</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Affiliate Link</th>
+<th class="px-6 py-4 font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Product Row 1 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-6 py-6">
+<div class="flex items-center space-x-4">
+<div class="h-16 w-14 bg-surface-container-high overflow-hidden rounded-sm flex-shrink-0">
+<img alt="Product thumbnail" class="h-full w-full object-cover" data-alt="Minimalist architectural digital sculpture render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5yTz08a8YwV6pOH3nwB3nnfk-LN7Oyt-GldlyWedR1rAeqF3AdTw2taPK2xXLlpnX7lfP7JKQ0zDGGBqKYZHMQEX0e_hDNV16000R4hCNh-ZlPiPTrwVt20FeQmGFUnlWrs0O0mZecTZvNNrxAuY04LYu9YOz2PCQbYvxdtaew1oFn8rlvuarEY9bCHZRYHqN5Wc6yUBc1U2RmGbHkYeaKsUMOi0_SSOheTez9-OBDLqzlngsvRitM4I0GgBzHrELZTh4h9p_1p2r"/>
+</div>
+<div>
+<div class="font-headline text-base text-on-surface">Ethereal Columns</div>
+<div class="font-label text-xs text-on-surface-variant opacity-60">Studio Archeos</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] uppercase tracking-wider font-semibold text-on-surface-variant">Interior Design</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center space-x-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-label uppercase tracking-widest">Active</span>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end space-x-3 text-on-surface-variant opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Product Row 2 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-6 py-6">
+<div class="flex items-center space-x-4">
+<div class="h-16 w-14 bg-surface-container-high overflow-hidden rounded-sm flex-shrink-0">
+<img alt="Product thumbnail" class="h-full w-full object-cover" data-alt="High-end leather digital goods mockup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAedJkTTTiKtxLMgkLHZrWU1WFj5-HveHUf-Nsr5QYXMRE100mCSP2ETPQpxW4a1QNpGYfrF5eEYrxW_SYWkdO8VeJd81KfWtzpSa7RfiGd_5lck9TfIPGcQglLcXsDmB6O-NeVNbkL2qSwQKQmOihly4VYntpgjFsApRSjK6wQrsM2SQjtx3jl9T85E4E3FhuV71YFYIgpD6DzpyRS5C-1aMLcg23e41_3AAjsK-sEyKEQ6tPW8sbgTqjIBI-C_ZNo5fRMt43hEFHC"/>
+</div>
+<div>
+<div class="font-headline text-base text-on-surface">Noir Palette</div>
+<div class="font-label text-xs text-on-surface-variant opacity-60">Vanguard Studio</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] uppercase tracking-wider font-semibold text-on-surface-variant">Minimalist</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center space-x-2 text-error">
+<span class="material-symbols-outlined text-sm" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-xs font-label uppercase tracking-widest">Missing Link</span>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end space-x-3 text-on-surface-variant opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Product Row 3 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-6 py-6">
+<div class="flex items-center space-x-4">
+<div class="h-16 w-14 bg-surface-container-high overflow-hidden rounded-sm flex-shrink-0">
+<img alt="Product thumbnail" class="h-full w-full object-cover" data-alt="Golden ornate digital decorative element" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5G_kQdLipuMyhD0qlCNG_Hm-4maCl8ru47x5Edf7Cd_riQRGA9QIgD9PigX0BFFLMOgcqA_bBq1t33gfcus911JQrFR_tKgkeas801UQvwFi_8sEVeIzU3y1qjUYieHEHuVZmDvkPT1-xI29nfUQV3yT812ASC8cZcPhT2YpB7ewnAcJTedl32ce8Gesekh5F6Vxcz1-wpwzPwAGZSKmqkVvVWNzApaMTPWqBzImEWz2VR40yvWlcT74OgQVqANAqaGP7b1ffyMcj"/>
+</div>
+<div>
+<div class="font-headline text-base text-on-surface">Aurelian Crest</div>
+<div class="font-label text-xs text-on-surface-variant opacity-60">Luxe Assets</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] uppercase tracking-wider font-semibold text-on-surface-variant">Luxury Heritage</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center space-x-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-label uppercase tracking-widest">Active</span>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end space-x-3 text-on-surface-variant opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Product Row 4 -->
+<tr class="group hover:bg-surface-container-low transition-colors duration-200">
+<td class="px-6 py-6">
+<div class="flex items-center space-x-4">
+<div class="h-16 w-14 bg-surface-container-high overflow-hidden rounded-sm flex-shrink-0">
+<img alt="Product thumbnail" class="h-full w-full object-cover" data-alt="Abstract flowy digital fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE5UQke8vWZ1ak6E60nHIsPIJ_FCVA1hSICcD_aFQVOqrFYAq9co2KMVSfNe3W-BtiXeJApla8CVBGBP4XGMEvSOXNpT8oAwfO4RSg14Vgrde-hl08t0Yak7qTRYwsGlzpS4PUx_1stjO9kdGrtkZaJE7TWWRLTrbfYw8_aSOyEEn0XrCpq6mz-AURmjT02P33FDtxJSVDQujn7AgTjP5w8uG--VZKFb1sbM3ESHI7Yux4WU8a2SjgusS2TRTx8y71alEJpUhAo0Ge"/>
+</div>
+<div>
+<div class="font-headline text-base text-on-surface">Silk Flows</div>
+<div class="font-label text-xs text-on-surface-variant opacity-60">Motion Canvas</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container-highest text-[10px] uppercase tracking-wider font-semibold text-on-surface-variant">Digital Art</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex items-center space-x-2 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-label uppercase tracking-widest">Active</span>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<div class="flex justify-end space-x-3 text-on-surface-variant opacity-40 group-hover:opacity-100 transition-opacity">
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="hover:text-primary transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="visibility">visibility</span></button>
+<button class="hover:text-error transition-colors active:scale-90"><span class="material-symbols-outlined" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-8 py-6 flex items-center justify-between border-t border-outline-variant/10 font-label text-xs uppercase tracking-widest text-on-surface-variant">
+<div class="hidden sm:block">Showing 1 to 4 of 24 products</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 opacity-30 cursor-not-allowed">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex items-center space-x-2">
+<span class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary font-bold">1</span>
+<span class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer">2</span>
+<span class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer">3</span>
+<span class="px-2">...</span>
+<span class="w-8 h-8 flex items-center justify-center hover:bg-surface-container transition-colors cursor-pointer">6</span>
+</div>
+<button class="p-2 hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Contextual Insight (Bento Element) -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 p-8 bg-surface-container-low border border-outline-variant/10">
+<h3 class="font-headline text-xl mb-4">Inventory Health</h3>
+<div class="grid grid-cols-3 gap-8">
+<div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60 mb-1">Total Products</div>
+<div class="text-3xl font-light text-primary">124</div>
+</div>
+<div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60 mb-1">Live Links</div>
+<div class="text-3xl font-light text-primary">118</div>
+</div>
+<div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant opacity-60 mb-1">Sync Rate</div>
+<div class="text-3xl font-light text-primary">95.2%</div>
+</div>
+</div>
+</div>
+<div class="p-8 bg-primary-container/20 border border-primary/10 relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-headline text-xl mb-4 text-on-primary-container">Affiliate Alert</h3>
+<p class="text-sm font-body text-on-primary-container/80 mb-4">6 products have broken affiliate links. Fix them to resume earning.</p>
+<button class="text-[10px] font-bold uppercase tracking-[0.2em] text-primary flex items-center group-hover:translate-x-1 transition-transform">
+                            View Issues <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-primary/5 text-8xl" data-icon="link_off">link_off</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Navigation (BottomNavBar) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container backdrop-blur-lg border-t border-outline-variant/10 z-50 flex justify-around items-center h-16 px-4">
+<button class="flex flex-col items-center space-y-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span class="text-[9px] uppercase tracking-tighter">Dash</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<span class="text-[9px] uppercase tracking-tighter">Collec</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="text-[9px] uppercase tracking-tighter font-bold">Manage</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" data-icon="insights">insights</span>
+<span class="text-[9px] uppercase tracking-tighter">Stats</span>
+</button>
+</nav>
+</body></html>
