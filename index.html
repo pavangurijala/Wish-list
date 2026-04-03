@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavan | Web Designer in Hyderabad</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* === CSS VARIABLES & RESET === */
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --bg-dark: #0a0a0a;
+            --bg-card: #16161a;
+            --text-light: #ffffff;
+            --text-muted: #a0a0b0;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* === REUSABLE COMPONENTS === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 60px auto;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #000;
+            box-shadow: 0 8px 20px rgba(0, 242, 254, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 242, 254, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--gradient);
+            color: #000;
+            border-color: transparent;
+        }
+
+        /* === NAVBAR === */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .contact-btn {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background: var(--gradient);
+            color: #000;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            background: radial-gradient(circle at top right, rgba(0, 242, 254, 0.1), transparent 40%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* === SERVICES SECTION === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: #1a1a24;
+            border-color: rgba(0, 242, 254, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* === WHY ME & SKILLS === */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .why-choose-me h3, .my-skills h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            background: var(--bg-card);
+            padding: 15px 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .feature-list i {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-right: 15px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .skill-tag i {
+            color: var(--primary);
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 242, 254, 0.1);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* === PRICING SECTION === */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 50px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            background: linear-gradient(to bottom, #16161a, #0d1e2b);
+            border: 1px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .pkg-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .pkg-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+
+        .pkg-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .pkg-features {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .pkg-features li {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .pkg-features i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* === CONTACT SECTION === */
+        .contact {
+            background: var(--bg-card);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 50px;
+            background: var(--bg-dark);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 242, 254, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-right: 20px;
+        }
+
+        .info-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .info-text a, .info-text span {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .info-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .input-group input {
+            width: 50%;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(0, 242, 254, 0.05);
+        }
+
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        footer p {
+            color: #666;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* === ANIMATIONS === */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .about-grid, .contact-wrap { grid-template-columns: 1fr; }
+            .pricing-card.popular { transform: scale(1); }
+            .pricing-card.popular:hover { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                background: var(--bg-card);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: 0.4s ease;
+                border-left: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .nav-links.active { right: 0; }
+            .menu-btn { display: block; }
+            .contact-btn { display: none; }
+            
+            .hero h1 { font-size: 2.5rem; }
+            .hero-btns { flex-direction: column; gap: 15px; }
+            .input-group { flex-direction: column; }
+            .input-group input { width: 100%; }
+            .contact-wrap { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Pavan<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">Why Me</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <a href="#contact" class="contact-btn">Get in Touch</a>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content reveal active">
+                <div class="hero-tagline"><i class="fas fa-bolt"></i> Your Business, Now Online</div>
+                <h1>Hi, I'm Pavan.<br><span>Web Designer in Hyderabad</span></h1>
+                <p>Helping businesses go digital. I design and develop modern, responsive websites for all types of businesses—helping you attract more customers and grow online.</p>
+                <div class="hero-btns">
+                    <a href="#pricing" class="btn btn-primary">View Pricing Packages</a>
+                    <a href="#contact" class="btn btn-outline">Consult For Free</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <div class="container">
+            <p class="section-subtitle reveal">What I Can Build For You</p>
+            <h2 class="section-title reveal">Professional <span>Digital Solutions</span></h2>
+            
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <i class="fas fa-building service-icon"></i>
+                    <h3>Business Websites</h3>
+                    <p>Corporate sites that build trust and clearly communicate your services to clients.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-shopping-cart service-icon"></i>
+                    <h3>E-Commerce Stores</h3>
+                    <p>Fully functional online stores with product management and secure payment gateways.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-laptop-code service-icon"></i>
+                    <h3>Portfolio Websites</h3>
+                    <p>Showcase your previous work, resume, and skills with a stunning online portfolio.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-bullseye service-icon"></i>
+                    <h3>Landing Pages</h3>
+                    <p>High-converting pages designed specifically for your marketing campaigns and ads.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-utensils service-icon"></i>
+                    <h3>Restaurant & Hotel</h3>
+                    <p>Websites with menu displays, image galleries, and booking/reservation systems.</p>
+                </div>
+                <div class="service-card reveal">
+                    <i class="fas fa-id-badge service-icon"></i>
+                    <h3>Personal Branding</h3>
+                    <p>Establish yourself as an authority in your field with a dedicated personal website.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE ME & SKILLS -->
+    <section id="about" style="background: var(--bg-card);">
+        <div class="container">
+            <div class="about-grid">
+                <div class="why-choose-me reveal">
+                    <h3>Why Choose Me? 🚀</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">I don't just build websites; I build digital experiences tailored to your business needs.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Affordable pricing for all businesses</li>
+                        <li><i class="fas fa-check-circle"></i> 100% Custom & modern design</li>
+                        <li><i class="fas fa-check-circle"></i> Fast delivery on all projects</li>
+                        <li><i class="fas fa-check-circle"></i> Friendly, ongoing support & communication</li>
+                    </ul>
+                </div>
+
+                <div class="my-skills reveal">
+                    <h3>My Tech Stack 🛠️</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">Equipped with the latest tools to ensure your website is fast, secure, and ranks well.</p>
+                    <div class="skills-container">
+                        <div class="skill-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+                        <div class="skill-tag"><i class="fas fa-paint-brush"></i> UI/UX Design</div>
+                        <div class="skill-tag"><i class="fab fa-html5"></i> HTML5 & CSS3</div>
+                        <div class="skill-tag"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="skill-tag"><i class="fab fa-wordpress"></i> WordPress</div>
+                        <div class="skill-tag"><i class="fab fa-shopify"></i> Shopify</div>
+                        <div class="skill-tag"><i class="fas fa-search"></i> SEO Setup</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing">
+        <div class="container">
+            <p class="section-subtitle reveal">Transparent & Affordable</p>
+            <h2 class="section-title reveal">Pricing <span>Packages</span></h2>
+            
+            <div class="pricing-grid">
+                <!-- Card 1 -->
+                <div class="pricing-card reveal">
+                    <h3 class="pkg-name">Local Special</h3>
+                    <div class="pkg-price">Offer<span>/biz</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Exclusive to local clients</p>
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check"></i> Free Consultation</li>
+                        <li><i class="fas fa-check"></i> Fast Delivery</li>
+                        <li><i class="fas fa-check"></i> Affordable Pricing</li>
+                        <li><i class="fas fa-check"></i> Local Market Focus</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Claim Offer</a>
+                </div>
+
+                <!-- Card 2 (Popular) -->
+                <div class="pricing-card popular reveal">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <h3 class="pkg-name">Starter Package</h3>
+                    <div class="pkg-price">₹4,999<span>/start</span></div>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Perfect for small businesses</p>
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check"></i> Professional Business Website</li>
+                        <li><i class="fas fa-check"></i> Mobile-Friendly Design</li>
+                        <li><i class="fas fa-check"></i> Basic SEO Setup</li>
+                        <li><i class="fas fa-check"></i> Contact Form Integration</li>
+                        <li><i class="fas fa-check"></i> Social Media Links</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="pricing-card reveal">
+                    <h3 class="pkg-name">Custom Package</h3>
+                    <div class="pkg-price">Custom</div>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">For advanced requirements</p>
+                    <ul class="pkg-features">
+                        <li><i class="fas fa-check"></i> Based on business needs</li>
+                        <li><i class="fas fa-check"></i> Extra pages & features</li>
+                        <li><i class="fas fa-check"></i> E-commerce & Payments</li>
+                        <li><i class="fas fa-check"></i> Advanced Design & SEO</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Request Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <p class="section-subtitle reveal">Ready to start?</p>
+            <h2 class="section-title reveal">Let's Work <span>Together</span></h2>
+            
+            <div class="contact-wrap reveal">
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                    <p>Whether you need a brand new website or want to upgrade an existing one, I'm here to help you succeed online.</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info-text">
+                            <h4>Call / WhatsApp</h4>
+                            <a href="tel:8886111499">8886111499</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <a href="mailto:pp4069524@gmail.com">pp4069524@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <h4>Serving In</h4>
+                            <span>Hyderabad & Remote Clients Worldwide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent. I will contact you shortly.');">
+                    <div class="input-group">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" required>
+                    <select style="width: 100%; padding: 16px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--text-muted); font-size: 1rem; margin-bottom: 5px;">
+                        <option value="">Select a Service...</option>
+                        <option value="starter">Starter Package (₹4,999)</option>
+                        <option value="ecommerce">E-commerce Website</option>
+                        <option value="custom">Custom Requirement</option>
+                    </select>
+                    <textarea placeholder="Tell me about your business and requirements..." required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h2>"Your Business, Now Online"</h2>
+            <p>&copy; 2024 Pavan - Web Designer in Hyderabad. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuBtn.querySelector('i');
+            if(navLinks.classList.contains('active')){
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Scroll Animation (Reveal Elements)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body>
+</html>
